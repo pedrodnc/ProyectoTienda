@@ -9,11 +9,18 @@ public class Cliente extends Usuario {
 		
 		// TODO Auto-generated constructor stub
 	}
+	public Cliente() {
+		
+	}
+	
 
 	public String getFormaPago() {
 		return formaPago;
 	}
 
+	public Cliente(String nombreAcceso, String pass, String numeroDNI) {
+		super(nombreAcceso, pass, numeroDNI);
+	}
 	public void setFormaPago(String formaPago) {
 		this.formaPago = formaPago;
 	}

@@ -1,8 +1,8 @@
 package Clases;
 
-public class Usuario {
+public abstract class Usuario {
 	
-	private String nombreAcceso;// Nombre de cada objeto persona    
+	private String nombreUsuario;// Nombre de cada objeto persona    
     private String pass;// Contraseña de cada objeto persona
     private String numeroDNI;// DNI de cada objeto persona
     private boolean estado; //Estado del usuario. Conctado/desconectado
@@ -11,20 +11,22 @@ public class Usuario {
     
 	public Usuario(String nombreAcceso, String pass, String numeroDNI) {
 		super();
-		this.nombreAcceso = nombreAcceso;
+		this.nombreUsuario = nombreAcceso;
 		this.pass = pass;
 		this.numeroDNI = numeroDNI;
 		
 	}
-	
+	public Usuario() {
+		
+	}
 	
 	public String getNombreAcceso() {
-		return nombreAcceso;
+		return nombreUsuario;
 	}
 
 
 	public void setNombreAcceso(String nombreAcceso) {
-		this.nombreAcceso = nombreAcceso;
+		this.nombreUsuario = nombreAcceso;
 	}
 
 
