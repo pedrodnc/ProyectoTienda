@@ -2,73 +2,58 @@ package Clases;
 
 public abstract class Usuario {
 	
-	private String nombreUsuario;// Nombre de cada objeto persona    
+	private String nombre;// Nombre de cada objeto persona    
     private String pass;// Contraseña de cada objeto persona
     private String numeroDNI;// DNI de cada objeto persona
-    private boolean estado; //Estado del usuario. Conctado/desconectado
+    private int idusuario;
+   
     
     
     
-	public Usuario(String nombreAcceso, String pass, String numeroDNI) {
+	public Usuario(String nombreAcceso, String pass, String numeroDNI, int idusuario) {
 		super();
-		this.nombreUsuario = nombreAcceso;
+		this.nombre = nombreAcceso;
 		this.pass = pass;
 		this.numeroDNI = numeroDNI;
+		this.idusuario=idusuario;
 		
 	}
 	public Usuario() {
 		
 	}
 	
-	public String getNombreAcceso() {
-		return nombreUsuario;
+	@Override
+	public String toString() {
+		return "Usuario [nombre=" + nombre + ", pass=" + pass + ", numeroDNI=" + numeroDNI + ", idusuario=" + idusuario
+				+ "]";
 	}
-
-
-	public void setNombreAcceso(String nombreAcceso) {
-		this.nombreUsuario = nombreAcceso;
+	public String getNombre() {
+		return nombre;
 	}
-
-
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 	public String getPass() {
 		return pass;
 	}
-
-
-	public void setPass(String pass) {
+	public void setPass (String pass)throws logitud_pass_erronea_exception {
+		if(this.pass.length()<8) {
+			throw new logitud_pass_erronea_exception("La contraseña debe que tener al menos 8 caracteres");
+		}else {
 		this.pass = pass;
+		}
 	}
-
-
 	public String getNumeroDNI() {
 		return numeroDNI;
 	}
-
-
 	public void setNumeroDNI(String numeroDNI) {
 		this.numeroDNI = numeroDNI;
 	}
-
-
-	public boolean isEstado() {
-		return estado;
+	public int getIdusuario() {
+		return idusuario;
 	}
-
-
-	public void setEstado(boolean estado) {
-		this.estado = estado;
+	public void setIdusuario(int idusuario) {
+		this.idusuario = idusuario;
 	}
-
-
-	public void leerBD() {
-		
-	}
-    public void grabarBD() {
-    	
-    }
-   
-
-    
-    
-
-}
+	
+}	

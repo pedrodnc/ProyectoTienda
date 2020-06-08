@@ -13,7 +13,7 @@ public class UsuarioDAO implements IDataBase {
 	public UsuarioDAO() {
 		
 		try {
-			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/institutos?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "patriliProg", "patriliProgramacion");
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/tienda?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "root");
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -27,10 +27,10 @@ public class UsuarioDAO implements IDataBase {
 		
 		try {
 			Statement smt=con.createStatement();
-			ResultSet rs=smt.executeQuery("select * from usuario where nombre='"+nombre+"' pass='"+pass+"'");
+			ResultSet rs=smt.executeQuery("select * from usuario ");
 			Usuario u =new Cliente();
-			u.setNombreAcceso(rs.getString(0));
-			u.setPass(rs.getString(1));
+			u.setNombre(rs.getString(1));
+			u.setPass(rs.getString(2));
 			//Rellenar los demas atributos de usuario
 			return u;
 		} catch (SQLException e) {
