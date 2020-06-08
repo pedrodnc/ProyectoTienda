@@ -8,6 +8,3 @@ public class Main {
 	}
 
 }
-class logitud_pass_erronea extends Exception {
-	public longitud_pass_erronea(){}
-}

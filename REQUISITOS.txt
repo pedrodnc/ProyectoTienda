@@ -1,0 +1,11 @@
+Buenas Patricia te adjunto aqui los reuisitos cumplidos y no cumplidos:
+-Puse la practica en común contgo y me diste el visto bueno y esta en un repositorio.
+-No he conseguido un buen funcionamiento de la aplicación, por falta de tiempo y motivos de salud, pero muchos de 
+las cosas que no he podido implementar aqui están en el examen final(solo quiero decirte que lo se hacer pero no puedo por falta de tiemo).
+-Las superclases a la vez abstractas son Usuario y Producto de las cuales heredan varias.
+-Uso polimorfismo para instanciar algunos objetos tipo: Producto p= new Cliente(...);
+-Uso dos excepciones propias, llamadas " logitud_pass_erronea_exception" y "error_precio_exception ", usadas en las clases
+Usuario y Producto, en los setters.
+Se que no es un trabajo muy bueno y aunque no cumpla todos los requisitos, puedo demostrarle como en el examen que se hacerlo,
+pero por los problemas de tiempo y salud no ha salido como yo esperaba, espero que al menos de para aprobar. 
+Lo siento por no haber aportado todo lo que podía y un saludo Patricia.
