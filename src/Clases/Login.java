@@ -9,12 +9,14 @@ import javax.swing.JTextPane;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import java.awt.Color;
 
 public class Login {
 
-	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JFrame frmMitienda;
+	private JTextField txtNombre;
+	private JTextField txtPass;
 
 	/**
 	 * Launch the application.
@@ -24,7 +26,7 @@ public class Login {
 			public void run() {
 				try {
 					Login window = new Login();
-					window.frame.setVisible(true);
+					window.frmMitienda.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -43,45 +45,58 @@ public class Login {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmMitienda = new JFrame();
+		frmMitienda.getContentPane().setBackground(Color.CYAN);
+		frmMitienda.getContentPane().setForeground(Color.BLACK);
+		frmMitienda.setForeground(Color.LIGHT_GRAY);
+		frmMitienda.setTitle("miTienda");
+		frmMitienda.setBounds(100, 100, 338, 216);
+		frmMitienda.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmMitienda.getContentPane().setLayout(null);
 		
-		JTextPane txtpnUsuario = new JTextPane();
-		txtpnUsuario.setText("Usuario:");
-		txtpnUsuario.setBounds(71, 83, 59, 22);
-		frame.getContentPane().add(txtpnUsuario);
+		txtNombre = new JTextField();
+		txtNombre.setBounds(160, 36, 116, 22);
+		frmMitienda.getContentPane().add(txtNombre);
+		txtNombre.setColumns(10);
 		
-		JTextPane txtpnPassword = new JTextPane();
-		txtpnPassword.setText("Contrase\u00F1a:");
-		txtpnPassword.setBounds(71, 132, 76, 22);
-		frame.getContentPane().add(txtpnPassword);
-		
-		textField = new JTextField();
-		textField.setBounds(160, 83, 116, 22);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(160, 132, 116, 22);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		txtPass = new JTextField();
+		txtPass.setBounds(160, 83, 116, 22);
+		frmMitienda.getContentPane().add(txtPass);
+		txtPass.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Entrar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Usuario u = new Cliente();
-				u.setNombreAcceso(textField.getText());
-				u.setPass(textField_1.getText());
+				if(!txtNombre.getText().isEmpty() &&!txtPass.getText().isEmpty()) {
+					UsuarioDAO uDao=new UsuarioDAO();
+					Usuario u =uDao.leer(txtNombre.getText(), txtPass.getText());
+					if (u==null) {
+						//No se ha encontrado, (aqui ya comparamos)
+					}else {
+						//Ir a la ventana menu
+						// Menu.setVisible.true
+						VentanaUsuario frame = new VentanaUsuario();
+						frame.setVisible(true);
+					}
+				}else {
+					//Lanzar excepcion campos no completados
+				}
 				
 			}
 		});
-		btnNewButton.setBounds(73, 187, 97, 25);
-		frame.getContentPane().add(btnNewButton);
+		btnNewButton.setBounds(62, 118, 97, 25);
+		frmMitienda.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Registrar");
-		btnNewButton_1.setBounds(196, 187, 97, 25);
-		frame.getContentPane().add(btnNewButton_1);
+		btnNewButton_1.setBounds(170, 118, 97, 25);
+		frmMitienda.getContentPane().add(btnNewButton_1);
+		
+		JLabel lblNewLabel = new JLabel("Usuario:");
+		lblNewLabel.setBounds(55, 39, 56, 16);
+		frmMitienda.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Contrase\u00F1a:");
+		lblNewLabel_1.setBounds(52, 86, 77, 16);
+		frmMitienda.getContentPane().add(lblNewLabel_1);
 	}
 }

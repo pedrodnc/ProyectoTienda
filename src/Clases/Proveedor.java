@@ -6,12 +6,11 @@ public class Proveedor extends Cliente {
 	private boolean diario;//Indica si el proveedor efectua envios diarios
 	private int cantidad; //Cantidad en kg del rpoducto suminstrado
 	
-	public Proveedor(String nombreAcceso, String pass, String numeroDNI, String formaPago, String tipoProducto,
-			boolean diario, int cantidad) {
-		super(nombreAcceso, pass, numeroDNI, formaPago);
-		this.tipoProducto = tipoProducto;
-		this.diario = diario;
-		this.cantidad = cantidad;
+	
+
+	public Proveedor(String nombreAcceso, String pass, String numeroDNI, int idusuario, String formaPago) {
+		super(nombreAcceso, pass, numeroDNI, idusuario, formaPago);
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getTipoProducto() {

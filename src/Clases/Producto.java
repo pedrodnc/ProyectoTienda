@@ -32,7 +32,10 @@ public abstract class Producto {
 	}
 
 
-	public void setPrecio(int precio) {
+	public void setPrecio(int precio) throws error_precio_exception {
+		if(this.precio<0) {
+			throw new error_precio_exception("El precio no puede ser negativo");
+		}
 		this.precio = precio;
 	}
 
